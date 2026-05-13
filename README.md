@@ -66,9 +66,15 @@ pkg install python git openssh -y
 # Clone repository
 git clone https://github.com/trmxvibs/ip-tracker
 
-# Navigate and run
+# Navigate to folder
 cd ip-tracker
+
+# Install Python requirements
+pip install -r requirements.txt
+
+# Run the script
 python chakravyuh.py
+
 ```
 
 
@@ -77,25 +83,40 @@ python chakravyuh.py
 # Update system
 sudo apt update
 
-# Install dependencies
-sudo apt install python3 python3-pip git -y
+# Install dependencies and venv
+sudo apt install python3 python3-pip python3-venv git -y
 
 # Clone repository
 git clone https://github.com/trmxvibs/ip-tracker
 
-# Navigate and run
+# Navigate to folder
 cd ip-tracker
+
+# Create a virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install requirements inside environment
+pip install -r requirements.txt
+
+# Run the script
 python3 chakravyuh.py
+
 ```
 ### WINDOWS
-
-Download and install Python 3.x (check “Add to PATH”).
-
-Download this repository.
-
-Open CMD inside the folder.
-Run
 ```sh
+:: Create virtual environment
+python -m venv venv
+
+:: Activate virtual environment
+call venv\Scripts\activate
+
+:: Install requirements
+pip install -r requirements.txt
+
+:: Run the script
 python chakravyuh.py
 ```
 
