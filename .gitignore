@@ -1,4 +1,13 @@
-Chakravyuh-Reports/
-.config/
-*.json
 __pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.bak
+.env
+.venv/
+venv/
+Chakravyuh-Reports/
+reports/
+apikeys.json
+config.json
+.DS_Store
