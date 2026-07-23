@@ -1,4 +1,4 @@
-# Chakravyuh Red Team & OSINT Suite 4.3.0
+# Chakravyuh Red Team & OSINT Suite
 
 Chakravyuh is a bilingual English/Greek command-line framework for passive OSINT, security assessment, and explicitly authorized red-team validation. The application itself is contained in one executable file, `chakravyuh.sh`. Python code is embedded in the Bash launcher and is not shipped as separate modules.
 
@@ -38,8 +38,14 @@ If normal and user-level package installation are unavailable, the installer als
 pkg update -y
 pkg install -y unzip
 cd ~/storage/downloads
-unzip -o chakravyuh-fixed-v4.3.0.zip
-cd chakravyuh-fixed-v4.3.0
+archive="$(find . -type f -iname 'chakravyuh*.zip' | head -n 1)"
+[ -n "$archive" ] || { echo "Chakravyuh ZIP not found."; exit 1; }
+rm -rf "$HOME/chakravyuh"
+mkdir -p "$HOME/chakravyuh"
+unzip -o "$archive" -d "$HOME/chakravyuh"
+script="$(find "$HOME/chakravyuh" -type f -name 'chakravyuh.sh' | head -n 1)"
+[ -n "$script" ] || { echo "chakravyuh.sh not found."; exit 1; }
+cd "$(dirname "$script")"
 chmod +x chakravyuh.sh
 ./chakravyuh.sh
 ```
@@ -57,8 +63,14 @@ termux-setup-storage
 
 
 ```bash
-unzip chakravyuh-fixed-v4.3.0.zip
-cd chakravyuh-fixed-v4.3.0
+archive="$(find . -type f -iname 'chakravyuh*.zip' | head -n 1)"
+[ -n "$archive" ] || { echo "Chakravyuh ZIP not found."; exit 1; }
+rm -rf ./chakravyuh
+mkdir -p ./chakravyuh
+unzip -o "$archive" -d ./chakravyuh
+script="$(find ./chakravyuh -type f -name 'chakravyuh.sh' | head -n 1)"
+[ -n "$script" ] || { echo "chakravyuh.sh not found."; exit 1; }
+cd "$(dirname "$script")"
 chmod +x chakravyuh.sh
 ./chakravyuh.sh
 ```
@@ -292,11 +304,11 @@ Username results are indicators, not identity proof. Open the returned profile a
 
 Most mail servers disable or intentionally obscure `VRFY`. A negative or ambiguous result does not prove that the mailbox does not exist.
 
+</details>
+
 ---
 
 ## Ελληνικά
-
-</details>
 
 <details>
 <summary><strong>Απαιτήσεις</strong></summary>
@@ -328,8 +340,14 @@ Most mail servers disable or intentionally obscure `VRFY`. A negative or ambiguo
 pkg update -y
 pkg install -y unzip
 cd ~/storage/downloads
-unzip -o chakravyuh-fixed-v4.3.0.zip
-cd chakravyuh-fixed-v4.3.0
+archive="$(find . -type f -iname 'chakravyuh*.zip' | head -n 1)"
+[ -n "$archive" ] || { echo "Chakravyuh ZIP not found."; exit 1; }
+rm -rf "$HOME/chakravyuh"
+mkdir -p "$HOME/chakravyuh"
+unzip -o "$archive" -d "$HOME/chakravyuh"
+script="$(find "$HOME/chakravyuh" -type f -name 'chakravyuh.sh' | head -n 1)"
+[ -n "$script" ] || { echo "chakravyuh.sh not found."; exit 1; }
+cd "$(dirname "$script")"
 chmod +x chakravyuh.sh
 ./chakravyuh.sh
 ```
@@ -347,8 +365,14 @@ termux-setup-storage
 
 
 ```bash
-unzip chakravyuh-fixed-v4.3.0.zip
-cd chakravyuh-fixed-v4.3.0
+archive="$(find . -type f -iname 'chakravyuh*.zip' | head -n 1)"
+[ -n "$archive" ] || { echo "Chakravyuh ZIP not found."; exit 1; }
+rm -rf ./chakravyuh
+mkdir -p ./chakravyuh
+unzip -o "$archive" -d ./chakravyuh
+script="$(find ./chakravyuh -type f -name 'chakravyuh.sh' | head -n 1)"
+[ -n "$script" ] || { echo "chakravyuh.sh not found."; exit 1; }
+cd "$(dirname "$script")"
 chmod +x chakravyuh.sh
 ./chakravyuh.sh
 ```

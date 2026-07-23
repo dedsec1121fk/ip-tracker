@@ -93,7 +93,7 @@ if [ "${CHAKRAVYUH_NO_AUTO_INSTALL:-}" = "1" ]; then
 fi
 for ARG in "$@"; do
     case "$ARG" in
-        --no-install|--help|-h|help|--version|version|self-test) AUTO_INSTALL=0 ;;
+        --no-install|--help|-h|help|self-test) AUTO_INSTALL=0 ;;
     esac
 done
 if [ "$AUTO_INSTALL" = "1" ]; then
@@ -127,7 +127,6 @@ import urllib.parse
 import urllib.request
 import webbrowser
 
-VERSION = "4.3.0"
 APP_NAME = "Chakravyuh Red Team & OSINT Suite"
 HOME = pathlib.Path.home()
 CONFIG_DIR = pathlib.Path(os.environ.get("XDG_CONFIG_HOME", HOME / ".config")) / "chakravyuh"
@@ -622,7 +621,7 @@ def bi(en, gr):
 def print_help(language="en"):
     greek = language in {"gr", "el"}
     if greek:
-        print(f"""{APP_NAME} {VERSION}
+        print(f"""{APP_NAME}
 
 Χρήση:
   ./chakravyuh.sh
@@ -663,7 +662,6 @@ OSINT:
   apikey-remove SERVICE        Αφαίρεση API key
   doctor                       Έλεγχος εξαρτήσεων
   self-test                    Offline αυτοέλεγχος
-  version                      Προβολή έκδοσης
 
 Παραδείγματα:
   ./chakravyuh.sh --language gr ip 8.8.8.8
@@ -672,7 +670,7 @@ OSINT:
 
 Εκτελείτε ενεργούς ελέγχους μόνο σε συστήματα που σας ανήκουν ή για τα οποία έχετε ρητή άδεια.""")
     else:
-        print(f"""{APP_NAME} {VERSION}
+        print(f"""{APP_NAME}
 
 Usage:
   ./chakravyuh.sh
@@ -713,7 +711,6 @@ System:
   apikey-remove SERVICE        Remove an API key
   doctor                       Check dependencies
   self-test                    Run offline self-tests
-  version                      Show version
 
 Examples:
   ./chakravyuh.sh ip 8.8.8.8
@@ -905,7 +902,6 @@ def save_report(kind, target, data):
     path = REPORT_DIR / f"{stamp}_{safe_name(kind)}_{safe_name(target)}.json"
     payload = {
         "application": APP_NAME,
-        "version": VERSION,
         "type": kind,
         "target": target,
         "created_at": timestamp(),
@@ -976,7 +972,7 @@ def resolve_target(value):
 
 def http_request(url, headers=None, timeout=12, allow_redirects=True, auth=None):
     headers = dict(headers or {})
-    headers.setdefault("User-Agent", f"{APP_NAME}/{VERSION}")
+    headers.setdefault("User-Agent", APP_NAME)
     requests_module = MODULES.get("requests")
     if requests_module is not None:
         response = requests_module.get(
@@ -1256,7 +1252,7 @@ def email_breach_check(email, apikeys):
         encoded = urllib.parse.quote(email, safe="")
         response = http_request(
             f"https://haveibeenpwned.com/api/v3/breachedaccount/{encoded}?truncateResponse=false",
-            headers={"hibp-api-key": key, "User-Agent": f"{APP_NAME}/{VERSION}"},
+            headers={"hibp-api-key": key, "User-Agent": APP_NAME},
             timeout=15,
         )
         if response["status"] == 404:
@@ -2591,7 +2587,6 @@ def create_parser():
     parser = argparse.ArgumentParser(prog="chakravyuh", add_help=False)
     parser.add_argument("--language", choices=["en", "gr", "el"])
     parser.add_argument("--help", "-h", action="store_true")
-    parser.add_argument("--version", action="store_true")
     parser.add_argument("--no-install", action="store_true")
     parser.add_argument("--json", action="store_true", dest="json_output")
     parser.add_argument("command", nargs="?")
@@ -2626,9 +2621,6 @@ def cli_main(args, config):
     command = (args.command or "menu").lower()
     if command in {"help", "-h", "--help"} or args.help:
         print_help(LANG)
-        return 0
-    if command == "version" or args.version:
-        print(VERSION)
         return 0
     if command == "language":
         selected = args.target
@@ -2807,13 +2799,10 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
     config = load_config()
-    if args.help or args.version:
+    if args.help:
         selected = args.language or config.get("language") or "en"
         LANG = "gr" if selected in {"gr", "el"} else "en"
-        if args.help:
-            print_help(LANG)
-        else:
-            print(VERSION)
+        print_help(LANG)
         return 0
     choose_language(config, args.language)
     return cli_main(args, config)
