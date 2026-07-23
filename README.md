@@ -8,7 +8,9 @@ The framework does not run active checks automatically. Port scanning, SMTP veri
 
 ## English
 
-### Requirements
+<details>
+<summary><strong>Requirements</strong></summary>
+
 
 - Android with Termux, Linux, or macOS
 - Internet access for online OSINT sources and first-time package installation
@@ -26,7 +28,11 @@ When Python 3 is missing, the launcher attempts to install it through Termux `pk
 
 If normal and user-level package installation are unavailable, the installer also tries an application-local package directory under `~/.local/share/chakravyuh/python-packages`. If every installation method fails, the program remains usable in a reduced fallback mode. Basic HTTP requests, IP resolution, limited DNS lookup, basic phone normalization, reports, and offline tests still work where possible.
 
-### Termux installation
+</details>
+
+<details>
+<summary><strong>Termux installation</strong></summary>
+
 
 ```bash
 pkg update -y
@@ -44,7 +50,11 @@ Termux storage access may be enabled with:
 termux-setup-storage
 ```
 
-### Linux and macOS
+</details>
+
+<details>
+<summary><strong>Linux and macOS</strong></summary>
+
 
 ```bash
 unzip chakravyuh-fixed-v4.3.0.zip
@@ -53,7 +63,11 @@ chmod +x chakravyuh.sh
 ./chakravyuh.sh
 ```
 
-### Language
+</details>
+
+<details>
+<summary><strong>Language</strong></summary>
+
 
 The language is selected on first launch and saved in the local configuration.
 
@@ -65,7 +79,11 @@ The language is selected on first launch and saved in the local configuration.
 
 `gr` and `el` both select Greek.
 
-### Main commands
+</details>
+
+<details>
+<summary><strong>Main commands</strong></summary>
+
 
 ```text
 myip                         Show public IP information
@@ -94,7 +112,11 @@ self-test                    Run offline functional tests
 
 Commands are case-sensitive; use `dns`, not `DNS`.
 
-### Authorized active checks
+</details>
+
+<details>
+<summary><strong>Authorized active checks</strong></summary>
+
 
 ```bash
 ./chakravyuh.sh email-verify user@example.com --authorized
@@ -112,7 +134,11 @@ Directory discovery reads at most 10,000 unique entries per run and filters comm
 
 Reverse-shell output is generated as text only. Chakravyuh does not execute the payload. Use this module only in an isolated lab or a specifically authorized engagement.
 
-### API keys
+</details>
+
+<details>
+<summary><strong>API keys</strong></summary>
+
 
 Keys are entered through a hidden prompt and stored in:
 
@@ -157,7 +183,11 @@ Official references:
 
 Follow each provider's terms, quotas, and licensing requirements. API access and available fields vary by account tier.
 
-### Reports and privacy
+</details>
+
+<details>
+<summary><strong>Reports and privacy</strong></summary>
+
 
 Reports are JSON files stored by default in:
 
@@ -175,7 +205,11 @@ The program has no analytics or hidden telemetry. Data is sent only to the onlin
 
 Do not commit the configuration directory, API keys, private reports, customer targets, evidence, or engagement wordlists to a public repository.
 
-### Automatic installation controls
+</details>
+
+<details>
+<summary><strong>Automatic installation controls</strong></summary>
+
 
 Disable Python package installation:
 
@@ -191,7 +225,11 @@ Check the current environment:
 
 The `doctor` command exits with a non-zero status when one or more optional packages remain unavailable.
 
-### JSON output
+</details>
+
+<details>
+<summary><strong>JSON output</strong></summary>
+
 
 Most commands support machine-readable output:
 
@@ -201,7 +239,11 @@ Most commands support machine-readable output:
 
 The JSON result is written to standard output. The saved report path is written to standard error so it does not corrupt piped JSON.
 
-### Offline self-test
+</details>
+
+<details>
+<summary><strong>Offline self-test</strong></summary>
+
 
 ```bash
 ./chakravyuh.sh self-test
@@ -209,7 +251,11 @@ The JSON result is written to standard output. The saved report path is written 
 
 The self-test validates parsing, a local TCP scan, filesystem operations, and core internal behavior. It deliberately does not contact public APIs, so it can run offline and does not consume API credits.
 
-### Troubleshooting
+</details>
+
+<details>
+<summary><strong>Troubleshooting</strong></summary>
+
 
 **Permission denied**
 
@@ -250,7 +296,11 @@ Most mail servers disable or intentionally obscure `VRFY`. A negative or ambiguo
 
 ## Ελληνικά
 
-### Απαιτήσεις
+</details>
+
+<details>
+<summary><strong>Απαιτήσεις</strong></summary>
+
 
 - Android με Termux, Linux ή macOS
 - Σύνδεση στο διαδίκτυο για online OSINT πηγές και την αρχική εγκατάσταση πακέτων
@@ -268,7 +318,11 @@ Most mail servers disable or intentionally obscure `VRFY`. A negative or ambiguo
 
 Αν δεν είναι διαθέσιμη η κανονική ή user-level εγκατάσταση, ο installer δοκιμάζει επίσης τοπικό φάκελο `~/.local/share/chakravyuh/python-packages`. Αν αποτύχουν όλες οι μέθοδοι, το πρόγραμμα συνεχίζει σε περιορισμένη λειτουργία. Βασικά HTTP requests, επίλυση IP, περιορισμένο DNS lookup, βασική κανονικοποίηση τηλεφώνου, αναφορές και offline tests παραμένουν διαθέσιμα όπου είναι δυνατό.
 
-### Εγκατάσταση στο Termux
+</details>
+
+<details>
+<summary><strong>Εγκατάσταση στο Termux</strong></summary>
+
 
 ```bash
 pkg update -y
@@ -286,7 +340,11 @@ chmod +x chakravyuh.sh
 termux-setup-storage
 ```
 
-### Linux και macOS
+</details>
+
+<details>
+<summary><strong>Linux και macOS</strong></summary>
+
 
 ```bash
 unzip chakravyuh-fixed-v4.3.0.zip
@@ -295,7 +353,11 @@ chmod +x chakravyuh.sh
 ./chakravyuh.sh
 ```
 
-### Γλώσσα
+</details>
+
+<details>
+<summary><strong>Γλώσσα</strong></summary>
+
 
 Η γλώσσα επιλέγεται στην πρώτη εκτέλεση και αποθηκεύεται τοπικά.
 
@@ -307,7 +369,11 @@ chmod +x chakravyuh.sh
 
 Τα `gr` και `el` επιλέγουν Ελληνικά.
 
-### Βασικές εντολές
+</details>
+
+<details>
+<summary><strong>Βασικές εντολές</strong></summary>
+
 
 ```text
 myip                         Εμφάνιση δημόσιας IP
@@ -336,7 +402,11 @@ self-test                    Offline λειτουργικός έλεγχος
 
 Οι εντολές είναι case-sensitive. Χρησιμοποιήστε `dns`, όχι `DNS`.
 
-### Ενεργοί έλεγχοι με εξουσιοδότηση
+</details>
+
+<details>
+<summary><strong>Ενεργοί έλεγχοι με εξουσιοδότηση</strong></summary>
+
 
 ```bash
 ./chakravyuh.sh email-verify user@example.com --authorized
@@ -354,7 +424,11 @@ self-test                    Offline λειτουργικός έλεγχος
 
 Το reverse-shell module παράγει μόνο κείμενο. Δεν εκτελεί το payload. Χρησιμοποιήστε το μόνο σε απομονωμένο lab ή σε συγκεκριμένα εξουσιοδοτημένο engagement.
 
-### API keys
+</details>
+
+<details>
+<summary><strong>API keys</strong></summary>
+
 
 Τα κλειδιά εισάγονται μέσω κρυφού prompt και αποθηκεύονται στο:
 
@@ -397,7 +471,11 @@ self-test                    Offline λειτουργικός έλεγχος
 
 Τηρείτε τους όρους, τα quotas και τις άδειες κάθε υπηρεσίας. Τα διαθέσιμα δεδομένα διαφέρουν ανάλογα με το account tier.
 
-### Αναφορές και ιδιωτικότητα
+</details>
+
+<details>
+<summary><strong>Αναφορές και ιδιωτικότητα</strong></summary>
+
 
 Οι αναφορές αποθηκεύονται ως JSON στο:
 
@@ -415,7 +493,11 @@ CHAKRAVYUH_REPORT_DIR="$HOME/my-assessment" ./chakravyuh.sh ip 8.8.8.8
 
 Μην ανεβάζετε σε δημόσιο repository API keys, ιδιωτικές αναφορές, customer targets, evidence ή wordlists engagement.
 
-### Έλεγχος αυτόματης εγκατάστασης
+</details>
+
+<details>
+<summary><strong>Έλεγχος αυτόματης εγκατάστασης</strong></summary>
+
 
 ```bash
 CHAKRAVYUH_NO_AUTO_INSTALL=1 ./chakravyuh.sh --no-install doctor
@@ -427,7 +509,11 @@ CHAKRAVYUH_NO_AUTO_INSTALL=1 ./chakravyuh.sh --no-install doctor
 
 Το `doctor` επιστρέφει non-zero exit status όταν παραμένουν μη διαθέσιμα πακέτα.
 
-### JSON output
+</details>
+
+<details>
+<summary><strong>JSON output</strong></summary>
+
 
 ```bash
 ./chakravyuh.sh --json ip 8.8.8.8
@@ -435,7 +521,11 @@ CHAKRAVYUH_NO_AUTO_INSTALL=1 ./chakravyuh.sh --no-install doctor
 
 Το JSON γράφεται στο standard output και το path της αναφοράς στο standard error, ώστε να μη χαλάει το piped JSON.
 
-### Offline αυτοέλεγχος
+</details>
+
+<details>
+<summary><strong>Offline αυτοέλεγχος</strong></summary>
+
 
 ```bash
 ./chakravyuh.sh self-test
@@ -443,7 +533,11 @@ CHAKRAVYUH_NO_AUTO_INSTALL=1 ./chakravyuh.sh --no-install doctor
 
 Ο αυτοέλεγχος εξετάζει parsing, τοπική TCP σάρωση, filesystem και βασική εσωτερική λειτουργία. Δεν καλεί δημόσια APIs και δεν καταναλώνει API credits.
 
-### Αντιμετώπιση προβλημάτων
+</details>
+
+<details>
+<summary><strong>Αντιμετώπιση προβλημάτων</strong></summary>
+
 
 **Permission denied**
 
@@ -479,3 +573,5 @@ python3 -m pip install --upgrade requests dnspython phonenumbers python-whois be
 **Αρνητικό SMTP verification**
 
 Οι περισσότεροι mail servers απενεργοποιούν ή παραποιούν σκόπιμα το `VRFY`. Ένα αρνητικό αποτέλεσμα δεν αποδεικνύει ότι το mailbox δεν υπάρχει.
+
+</details>
